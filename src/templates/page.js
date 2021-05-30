@@ -5,6 +5,7 @@ import { Form, FormBlock } from "../blocks/form"
 import { Title, TitleBlock } from "../blocks/title"
 import { Image, ImageBlock } from "../blocks/image"
 import { Content, ContentBlock } from "../blocks/content"
+import { LocationsMap, LocationsMapBlock } from "../blocks/locations-map"
 import { PageLayout } from "../components/pageLayout"
 
 import { useLocalJsonForm } from "gatsby-tinacms-json"
@@ -37,6 +38,8 @@ export default function Page({ data }) {
                     />
                   )
                 break
+              case "LocationsMapBlock":
+                return <LocationsMap data={data} />
               default:
                 return true
             }
@@ -128,6 +131,7 @@ const PageForm = {
         ImageBlock,
         FormBlock,
         ContentBlock,
+        LocationsMapBlock,
       },
     },
   ],
