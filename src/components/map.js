@@ -1,32 +1,37 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled, { css, withTheme } from "styled-components"
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import KenyaJSON from "../../content/maps/kenya.json";
-
+import { Theme } from './theme';
 
 const geojsonFiles = {
-  "Kenya": KenyaJSON,
+  "Kenya": {
+    file: KenyaJSON,
+    projectionConfig: {
+      rotate: [-38, -0.3, 0],
+      scale: 2000,
+    }
+  },
 }
 
-export const Map = ({ file, locations, markerOffset }) => {  
+export const Map = withTheme(({ file, locations, markerOffset, theme }, props) => {
   return (
     <ComposableMap
       projection="geoAzimuthalEqualArea"
-      projectionConfig={{
-        rotate: [-38, -0.3, 0],
-        scale: 2000
-      }}
+      projectionConfig={geojsonFiles[file].projectionConfig}
       width={300}
       height={360}
-      style={{ width: "auto", height: "100%" }}
+      style={{ width: "100%" }}
     >
-      <Geographies geography={geojsonFiles[file]}>
+      <Geographies geography={geojsonFiles[file].file}>
         {({ geographies }) =>
-          geographies.map(geo => 
+          geographies.map(geo =>
             <Geography
               key={geo.rsmKey}
               geography={geo}
               tabIndex={-1}
+              fill={theme.color.foreground}
+              stroke={"gray"}
               style={{
                 default: { outline: "none" },
                 hover: { outline: "none" },
@@ -36,14 +41,15 @@ export const Map = ({ file, locations, markerOffset }) => {
           )
         }
       </Geographies>
-      
+
       {locations.map(({ name, latitude, longitude }) => (
         <Marker key={name} coordinates={[latitude, longitude]}>
-          <circle r={5} fill="#F00" stroke="#fff" strokeWidth={1} />
+          <circle r={theme.radius.small} fill={theme.color.secondary} stroke={theme.color.background} strokeWidth={1} />
           <text
             textAnchor="middle"
             y={markerOffset}
-            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+            fill={theme.color.primary}
+            fontSize={"0.75em"}
           >
             {name}
           </text>
@@ -51,39 +57,4 @@ export const Map = ({ file, locations, markerOffset }) => {
       ))}
     </ComposableMap>
   )
-}
-
-const HeroWrapper = styled.div`
-  position: relative;
-  flex: 0 0 auto;
-  top: 0;
-  padding-top: ${props => props.theme.header.height};
-  min-height: calc(
-    ${props => props.theme.header.height} +
-      ${props => props.theme.header.height}
-  );
-
-  ${props =>
-    props.theme.hero.parallax &&
-    css`
-      transform-style: preserve-3d;
-    `}
-`
-
-const HeroContent = styled.div`
-  display: block;
-  padding: 3rem 0;
-
-  ${props =>
-    props.large &&
-    css`
-      padding: 8rem 0;
-    `}
-`
-
-export const Actions = styled.div`
-  padding-bottom: 0.5rem;
-  > * {
-    margin-right: 1rem;
-  }
-`
+})
