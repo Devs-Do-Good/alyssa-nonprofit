@@ -7,7 +7,7 @@ draft: false
 tags:
   - blog-post
 authors:
-  - scott-byrne
+  - alyssa-makena
 ---
 ## This is the first published post on the nonprofit website!
 
