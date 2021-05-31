@@ -8,7 +8,14 @@
     },
     {
       "_template": "LocationsMapBlock",
-      "content": ""
+      "content": "",
+      "locations": [
+        {
+          "name": "New Location",
+          "latitude": 0,
+          "longitude": 0
+        }
+      ]
     },
     {
       "_template": "ContentBlock",
