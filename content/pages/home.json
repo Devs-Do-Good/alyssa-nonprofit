@@ -6,8 +6,8 @@
       "locations": [
         {
           "name": "New Location",
-          "latitude": "",
-          "longitude": 0
+          "latitude": 36.8219,
+          "longitude": -1.2921
         }
       ],
       "_template": "LocationsMapBlock",
