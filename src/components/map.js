@@ -1,40 +1,55 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { Wrapper, Overlay, LinkButton } from "./style"
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import KenyaJSON from "../../content/maps/kenya.json";
 
-export const Hero = ({ hero }) => {
+
+const geojsonFiles = {
+  "Kenya": KenyaJSON,
+}
+
+export const Map = ({ file, locations, markerOffset }) => {  
   return (
-    <HeroWrapper>
-      <HeroBackground>
-        {hero.overlay && <Overlay />}
-        {hero.image && (
-          <HeroImage fluid={hero.image.childImageSharp.fluid}></HeroImage>
-        )}
-      </HeroBackground>
-      {(hero.headline || hero.textline || hero.ctas) && (
-        <HeroContent large={hero.large}>
-          <Wrapper>
-            {hero.headline && <Headline>{hero.headline}</Headline>}
-            {hero.textline && <Textline>{hero.textline}</Textline>}
-            {hero.ctas && (
-              <Actions>
-                {Object.keys(hero.ctas).map(key => {
-                  return (
-                    <LinkButton
-                      primary={hero.ctas[key].primary}
-                      to={hero.ctas[key].link}
-                    >
-                      {hero.ctas[key].label}
-                      {hero.ctas[key].arrow && <span>&nbsp;&nbsp;→</span>}
-                    </LinkButton>
-                  )
-                })}
-              </Actions>
-            )}
-          </Wrapper>
-        </HeroContent>
-      )}
-    </HeroWrapper>
+    <ComposableMap
+      projection="geoAzimuthalEqualArea"
+      projectionConfig={{
+        rotate: [-38, -0.3, 0],
+        scale: 2000
+      }}
+      width={300}
+      height={360}
+      style={{ width: "auto", height: "100%" }}
+    >
+      <Geographies geography={geojsonFiles[file]}>
+        {({ geographies }) =>
+          geographies.map(geo => 
+            <Geography
+              key={geo.rsmKey}
+              geography={geo}
+              tabIndex={-1}
+              style={{
+                default: { outline: "none" },
+                hover: { outline: "none" },
+                pressed: { outline: "none" },
+              }}
+            />
+          )
+        }
+      </Geographies>
+      
+      {locations.map(({ name, latitude, longitude }) => (
+        <Marker key={name} coordinates={[latitude, longitude]}>
+          <circle r={5} fill="#F00" stroke="#fff" strokeWidth={1} />
+          <text
+            textAnchor="middle"
+            y={markerOffset}
+            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+          >
+            {name}
+          </text>
+        </Marker>
+      ))}
+    </ComposableMap>
   )
 }
 

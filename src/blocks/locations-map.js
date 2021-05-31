@@ -1,16 +1,37 @@
 import React from "react"
 import styled from "styled-components"
+import { Map } from "../components/map"
 
 export function LocationsMap({ data }) {
-  return (
-      <div>hi</div>
+    if (data.locations === undefined) {
+        return null
+    }
+    return (
+        <MapWrapper>
+            {data.mapType}
+            <Map
+                file={data.mapType}
+                locations={data.locations}
+                markerOffset={15}
+            />
+        </MapWrapper>
     )
 }
 
+const MapWrapper = styled.div`
+    max-width: 100vw;
+    height: auto;
+`
+
 export const LocationsMapBlock = {
   label: "Locations Map",
+  key: "map",
   name: "locationsmap",
-  defaultItem: {},
+  component: "group",
+  defaultItem: {
+    mapType: "Kenya",
+    locations: [],
+  },
   fields: [
     {
         name: "mapType",

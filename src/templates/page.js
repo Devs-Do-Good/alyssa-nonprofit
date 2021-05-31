@@ -11,6 +11,9 @@ import { PageLayout } from "../components/pageLayout"
 import { useLocalJsonForm } from "gatsby-tinacms-json"
 
 export default function Page({ data }) {
+  // hacky way to get map data since I've given up
+  const blocksJson = JSON.parse(data.page.rawJson).blocks
+
   const [page] = useLocalJsonForm(data.page, PageForm)
   const blocks = page.blocks ? page.blocks : []
 
@@ -39,7 +42,8 @@ export default function Page({ data }) {
                   )
                 break
               case "LocationsMapBlock":
-                return <LocationsMap data={data} />
+                // use JSON with map data
+                return <LocationsMap data={blocksJson[i]} />
               default:
                 return true
             }
