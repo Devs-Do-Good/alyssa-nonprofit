@@ -6,6 +6,8 @@ path: /blog/first-blog-post-
 draft: true
 tags:
   - blog-post
+authors:
+  - scott-byrne
 ---
 ## This is the first published post on the nonprofit website!
 
