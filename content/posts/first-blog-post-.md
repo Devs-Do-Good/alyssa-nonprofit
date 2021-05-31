@@ -3,7 +3,7 @@ title: First Blog Post!
 date: '2021-05-31T19:31:35.398Z'
 type: post
 path: /blog/first-blog-post-
-draft: true
+draft: false
 tags:
   - blog-post
 authors:
