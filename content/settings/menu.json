@@ -9,6 +9,10 @@
       "link": "/about",
       "subMenu": [
         {
+          "label": "Our Mission",
+          "link": "/about/mission"
+        },
+        {
           "label": "Our Team",
           "link": "/about/team"
         }
