@@ -6,7 +6,13 @@
     },
     {
       "label": "About",
-      "link": "/about"
+      "link": "/about",
+      "subMenu": [
+        {
+          "label": "Our Team",
+          "link": "/about/ourteam"
+        }
+      ]
     },
     {
       "label": "Blog",
