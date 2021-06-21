@@ -3,7 +3,7 @@ const site = require("./content/settings/site.json")
 
 module.exports = {
   // for deploying to gh-pages
-  pathPrefix: "/alyssa-nonprofit",
+  pathPrefix: `/alyssa-nonprofit`,
 
   plugins: [
     `gatsby-transformer-sharp`,
