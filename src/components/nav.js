@@ -35,13 +35,6 @@ export const Nav = ({ toggleDarkMode, isDarkMode }) => {
             </NavLink>
           </NavItem>
         ))}
-        <NavItem>
-          <DarkModeToggle
-            aria-label="Toggle Dark Theme"
-            onClick={toggleDarkMode}
-            isDarkMode={isDarkMode}
-          />
-        </NavItem>
       </StyledNavbar>
       <NavToggle
         aria-label="Toggle Nav"

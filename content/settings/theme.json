@@ -1,9 +1,9 @@
 {
   "color": {
-    "black": "#131110",
-    "white": "#f7f7f7",
-    "primary": "#1B9AAA",
-    "secondary": "#DDDBCB"
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "primary": "#5B5F97",
+    "secondary": "#FFC95C"
   },
   "easing": "cubic-bezier(0.215, 0.610, 0.355, 1.000)",
   "breakpoints": {
@@ -22,7 +22,7 @@
     "underline": true
   },
   "hero": {
-    "image": "../images/cafe.jpg",
+    "image": "../images/random-blue-image.jpg",
     "large": false,
     "overlay": true,
     "overlap": "8rem",
