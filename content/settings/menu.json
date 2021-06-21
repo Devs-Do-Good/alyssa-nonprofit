@@ -13,8 +13,12 @@
       "link": "/blog"
     },
     {
-      "label": "Contact",
-      "link": "/contact"
+      "label": "Get Involved",
+      "link": "/getinvolved"
+    },
+    {
+      "label": "Donate!",
+      "link": "/donate"
     }
   ]
 }
