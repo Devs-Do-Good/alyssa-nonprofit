@@ -35,12 +35,12 @@
       },
       {
         "label": "Get Involved",
-        "link": "/contact",
+        "link": "/getinvolved",
         "arrow": false,
         "primary": false
       }
     ],
-    "image": "../images/random-blue-image.jpg",
+    "image": "../images/",
     "large": true
   },
   "displayTitle": false,
