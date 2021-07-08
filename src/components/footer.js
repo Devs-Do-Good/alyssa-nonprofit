@@ -3,11 +3,17 @@ import { Wrapper } from "./style"
 import styled from "styled-components"
 import { transparentize } from "polished"
 
-export const Footer = styled(({ ...styleProps }) => {
+export const Footer = styled(({ edit, setEdit, ...styleProps }) => {
+  const onClick = () => {
+    setEdit(!edit);
+  }
+
   return (
     <footer {...styleProps}>
       <Wrapper>
-        
+        <a onClick={onClick}>
+          {edit ? 'Quit editing this site' : 'Edit this site'}
+        </a>
       </Wrapper>
     </footer>
   )
