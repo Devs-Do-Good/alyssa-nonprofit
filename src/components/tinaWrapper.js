@@ -14,7 +14,10 @@ const TinaWrapper = ({ query, children }, props) => {
     }, []);
   
     return (
-        <TinaCloudProvider cms={cms}>
+        <TinaCloudProvider
+          cms={cms}
+          isLocalClient={Boolean(Number(process.env.GATSBY_TINA_USE_LOCAL))}
+        >
             {query ? <Inner {...props} /> : children}
         </TinaCloudProvider>
     );
