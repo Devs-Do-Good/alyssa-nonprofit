@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { css } from "styled-components"
 import { Header } from "./header"
-import { Footer } from "./footer"
 import { Theme } from "./theme"
 import Helmet from "react-helmet"
 import slugify from "react-slugify"
@@ -31,7 +30,6 @@ const MasterLayout = ({ children }) => {
         <Site>
           <Header siteTitle={data.site.title} />
           {children}
-          <Footer />
         </Site>
       </Theme>
     </>
@@ -94,10 +92,6 @@ export const Site = styled.div`
   justify-content: space-between;
 
   > ${Header} {
-    flex: 0 0 auto;
-  }
-
-  > ${Footer} {
     flex: 0 0 auto;
   }
 

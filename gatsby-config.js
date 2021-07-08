@@ -2,6 +2,9 @@ const theme = require("./content/settings/theme.json")
 const site = require("./content/settings/site.json")
 
 module.exports = {
+  // for deploying to gh-pages
+  pathPrefix: `/alyssa-nonprofit`,
+
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

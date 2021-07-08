@@ -37,6 +37,7 @@ export const Reset = css`
   h6 {
     margin: 0;
     padding: 0;
+    font-family: 'Bellefair', serif;
   }
 
   h1,
@@ -47,6 +48,7 @@ export const Reset = css`
   h6 {
     font-size: 100%;
     font-weight: normal;
+    font-family: 'Roboto', sans-serif;
   }
 
   ul {

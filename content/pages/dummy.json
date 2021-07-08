@@ -8,7 +8,7 @@
     "textline": "Dummy",
     "large": false,
     "overlay": true,
-    "image": "../images/cafe-2.jpg",
+    "image": "../images/random-blue-image.jpg",
     "ctas": [
       {
         "label": "Read The Blog",
@@ -31,7 +31,7 @@
       "center": false,
       "underline": true,
       "recipient": "dummy",
-      "image": "../images/dummy.jpg",
+      "image": "../images/random-blue-image.jpg",
       "fields": [
         {
           "_template": "dummy",

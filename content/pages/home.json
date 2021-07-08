@@ -2,13 +2,30 @@
   "path": "/",
   "blocks": [
     {
+      "content": "## Umor bis\n\nAdit suo ait in olorinis portitor **undam tangentia** quibus Hectora invideatis cardine pressit fovet, _fuit_; nec barba sudantibus? Forte aliquis, ultaque et is inritamen velamina Clarium: [non](http://retiaque-in.io/). Inter pendentia eligit, sua fugam cumque. Domat ex nomina rogantum genitas delapsam: iam quae capillos facienda lanificae tectus solidorum. Seraque Medea, et exstinctique et conata **Cumarum** species ultra re cognita!\n\nMaybe this will be saved in the cloud",
+      "center": false,
+      "_template": "ContentBlock"
+    },
+    {
+      "mapType": "Kenya",
+      "locations": [
+        {
+          "name": "Nairobi",
+          "latitude": 36.8219,
+          "longitude": -1.2921
+        }
+      ],
+      "_template": "LocationsMapBlock",
+      "content": ""
+    },
+    {
       "_template": "ContentBlock",
-      "content": "## Umor bis\n\nAdit suo ait in olorinis portitor **undam tangentia** quibus Hectora invideatis cardine pressit fovet, _fuit_; nec barba sudantibus? Forte aliquis, ultaque et is inritamen velamina Clarium: [non](http://retiaque-in.io/). Inter pendentia eligit, sua fugam cumque. Domat ex nomina rogantum genitas delapsam: iam quae capillos facienda lanificae tectus solidorum. Seraque Medea, et exstinctique et conata **Cumarum** species ultra re cognita!\n\n## Nec qui esse indignatus rursus meo labor\n\nEt offensane vocato, vivebat Acrisioniades cinisque antiquus furit corripiens. Ab quoque, cum ponit circuitu resuscitat timor exspiravit corpore. Erat tenus et nocet, pervenit coniuge fibra feris sequentis pares membrana illa. Praelatus tumultus flores annos. Fidumque Acoetes.\n\n1. Vim remis\n2. Non haerebat teneas raptaturque marito huius\n3. Nomen carinas placato mora deprensi umbras\n4. Iole utque quoque\n5. Aedibus totumque timuere senex Argentea corpore Et tanti ficti _non_ removente lenimen _Crete vestigia_ in deus, Olenios velut. Agna fulget, gratia habitant fonti pignus. Cura modo sacra petatur non adligat placebant sic discubuere tamen caelestibus pendebat."
+      "content": "## Nec qui esse indignatus rursus meo labor\n\nEt offensane vocato, vivebat Acrisioniades cinisque antiquus furit corripiens. Ab quoque, cum ponit circuitu resuscitat timor exspiravit corpore. Erat tenus et nocet, pervenit coniuge fibra feris sequentis pares membrana illa. Praelatus tumultus flores annos. Fidumque Acoetes.\n\n1. Vim remis\n2. Non haerebat teneas raptaturque marito huius\n3. Nomen carinas placato mora deprensi umbras\n4. Iole utque quoque\n5. Aedibus totumque timuere senex Argentea corpore Et tanti ficti _non_ removente lenimen _Crete vestigia_ in deus, Olenios velut. Agna fulget, gratia habitant fonti pignus. Cura modo sacra petatur non adligat placebant sic discubuere tamen caelestibus pendebat."
     }
   ],
   "hero": {
-    "headline": "Welcome to Tina Grande.",
-    "textline": "This template is filled with sample content to get you started.",
+    "headline": "Shine Bright Kenya",
+    "textline": "Distributing women's health hygiene kits and introducing STEM education",
     "ctas": [
       {
         "label": "Read The Blog",
@@ -17,13 +34,13 @@
         "arrow": true
       },
       {
-        "label": "Contact Us",
-        "link": "/contact",
+        "label": "Get Involved",
+        "link": "/getinvolved",
         "arrow": false,
         "primary": false
       }
     ],
-    "image": "../images/cafe-2.jpg",
+    "image": "../images/",
     "large": true
   },
   "displayTitle": false,

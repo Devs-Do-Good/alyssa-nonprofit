@@ -1,19 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Paper } from "../components/style"
 import { Form, FormBlock } from "../blocks/form"
 import { Title, TitleBlock } from "../blocks/title"
 import { Image, ImageBlock } from "../blocks/image"
 import { Content, ContentBlock } from "../blocks/content"
+import { LocationsMap, LocationsMapBlock } from "../blocks/locations-map"
 import { PageLayout } from "../components/pageLayout"
+import TinaWrapper from '../components/tinaWrapper'
+import { Footer } from "../components/footer"
 
 import { useLocalJsonForm } from "gatsby-tinacms-json"
 
 export default function Page({ data }) {
+  // hacky way to get map data since I've given up
+  const blocksJson = JSON.parse(data.page.rawJson).blocks
+
+  // const { edit, setEdit } = useEditState();
+  const [edit, setEdit] = useState(false);
+
   const [page] = useLocalJsonForm(data.page, PageForm)
   const blocks = page.blocks ? page.blocks : []
 
-  return (
+  const pageContent = (
+    <>
     <PageLayout page={page}>
       <Paper>
         {blocks &&
@@ -37,13 +47,29 @@ export default function Page({ data }) {
                     />
                   )
                 break
+              case "LocationsMapBlock":
+                // use JSON with map data
+                return <LocationsMap data={blocksJson[i]} />
               default:
                 return true
             }
           })}
       </Paper>
     </PageLayout>
-  )
+    <Footer edit={edit} setEdit={setEdit} />
+    </>
+  );
+
+  if (edit) {
+    return (
+      <TinaWrapper>
+        {pageContent}
+      </TinaWrapper>
+    )
+  }
+  else {
+    return pageContent;
+  }
 }
 
 const PageForm = {
@@ -128,6 +154,7 @@ const PageForm = {
         ImageBlock,
         FormBlock,
         ContentBlock,
+        LocationsMapBlock,
       },
     },
   ],

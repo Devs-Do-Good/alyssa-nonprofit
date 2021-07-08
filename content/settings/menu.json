@@ -6,15 +6,39 @@
     },
     {
       "label": "About",
-      "link": "/about"
+      "link": "/about",
+      "subMenu": [
+        {
+          "label": "Our Mission",
+          "link": "/about/mission"
+        },
+        {
+          "label": "Our Team",
+          "link": "/about/team"
+        }
+      ]
     },
     {
       "label": "Blog",
       "link": "/blog"
     },
     {
-      "label": "Contact",
-      "link": "/contact"
+      "label": "Get Involved",
+      "link": "/getinvolved"
+    },
+    {
+      "label": "Donate!",
+      "link": "/donate",
+      "subMenu": [
+        {
+          "label": "Health Hygiene Kits",
+          "link": "/donate/kits"
+        },
+        {
+          "label": "Book Drive",
+          "link": "/donate/bookdrive"
+        }
+      ]
     }
   ]
 }

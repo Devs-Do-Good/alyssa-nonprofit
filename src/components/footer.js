@@ -3,15 +3,17 @@ import { Wrapper } from "./style"
 import styled from "styled-components"
 import { transparentize } from "polished"
 
-export const Footer = styled(({ ...styleProps }) => {
+export const Footer = styled(({ edit, setEdit, ...styleProps }) => {
+  const onClick = () => {
+    setEdit(!edit);
+  }
+
   return (
     <footer {...styleProps}>
       <Wrapper>
-        © {new Date().getFullYear()} – Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a> and{" "}
-        <a href="https://www.tinacms.org">Tina</a> <span>by </span>
-        <a href="https://www.forestry.io">Forestry.io</a>
+        <a onClick={onClick}>
+          {edit ? 'Quit editing this site' : 'Edit this site'}
+        </a>
       </Wrapper>
     </footer>
   )
