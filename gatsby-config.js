@@ -1,5 +1,7 @@
 const theme = require("./content/settings/theme.json")
 const site = require("./content/settings/site.json")
+const path = require('path')
+const REPO_ABSOLUTE_PATH = path.join(process.cwd(), './')
 
 module.exports = {
   // for deploying to gh-pages
@@ -30,6 +32,12 @@ module.exports = {
           {
             resolve: "gatsby-tinacms-git",
             options: {
+              pathToRepo: REPO_ABSOLUTE_PATH,
+              pathToContent: '/',
+              defaultCommitMessage: 'Edited with TinaCMS',
+              defaultCommitName: 'DevsDoGood',
+              defaultCommitEmail: 'devsdogood@gmail.com',
+              pushOnCommit: true,
               sshKey: process.env.SSH_KEY
             },
           },
