@@ -22,11 +22,10 @@ Our goal is continuous and you all have helped us successfully reach step one. W
 
 ![500+ Picture Pictures | Download Free Images on Unsplash](https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGljdHVyZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80)
 
-  
 Follow us @______ on Facebook and @_____ on Instagram.
 
 Best Regards,
 
 Alyssa M
 
-That's cool :
+Alyssa Mak
