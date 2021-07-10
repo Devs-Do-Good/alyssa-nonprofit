@@ -10,9 +10,9 @@
       "mapType": "Kenya",
       "locations": [
         {
-          "name": "Nairobi",
-          "latitude": 36.8219,
-          "longitude": -1.2921
+          "name": "Kajiado County",
+          "latitude": 36.782,
+          "longitude": 2.0981
         }
       ],
       "_template": "LocationsMapBlock",
