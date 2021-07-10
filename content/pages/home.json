@@ -10,6 +10,11 @@
       "mapType": "Kenya",
       "locations": [
         {
+          "name": "Tharaka-Nithi County",
+          "latitude": 37.7238,
+          "longitude": 0.2965
+        },
+        {
           "name": "Kajiado County",
           "latitude": 36.782,
           "longitude": 2.0981
