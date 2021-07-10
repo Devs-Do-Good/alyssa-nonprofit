@@ -26,6 +26,4 @@ Follow us @______ on Facebook and @_____ on Instagram.
 
 Best Regards,
 
-Alyssa M
-
-Alyssa Mak
+Alyssa Makena
