@@ -22,7 +22,9 @@
       ],
       "_template": "LocationsMapBlock",
       "content": "",
-      "mapColor": "#7D3737"
+      "mapColor": "#A3826C",
+      "locationTextColor": "#B8B8D1",
+      "locationPointColor": "#A3826C"
     },
     {
       "_template": "ContentBlock",
