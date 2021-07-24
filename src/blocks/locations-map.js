@@ -13,6 +13,9 @@ export function LocationsMap({ data }) {
                 file={data.mapType}
                 locations={data.locations}
                 markerOffset={15}
+                mapColor={data.mapColor}
+                locationTextColor={data.locationTextColor}
+                locationPointColor={data.locationPointColor}
             />
         </MapWrapper>
     )
@@ -38,6 +41,24 @@ export const LocationsMapBlock = {
         label: "Map Type",
         component: "select",
         options: ["Kenya"]
+    },
+    {
+        name: "mapColor",
+        label: "Map Color",
+        component: "color",
+        colorFormat: "hex",
+    },
+    {
+        name: "locationTextColor",
+        label: "Location Text Color",
+        component: "color",
+        colorFormat: "hex",
+    },
+    {
+        name: "locationPointColor",
+        label: "Location Point Color",
+        component: "color",
+        colorFormat: "hex",
     },
     {
         name: "locations",

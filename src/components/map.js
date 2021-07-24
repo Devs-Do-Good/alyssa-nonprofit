@@ -14,7 +14,7 @@ const geojsonFiles = {
   },
 }
 
-export const Map = withTheme(({ file, locations, markerOffset, theme }, props) => {
+export const Map = withTheme(({ file, locations, mapColor, locationTextColor, locationPointColor, markerOffset, theme }, props) => {
   return (
     <ComposableMap
       projection="geoAzimuthalEqualArea"
@@ -30,7 +30,7 @@ export const Map = withTheme(({ file, locations, markerOffset, theme }, props) =
               key={geo.rsmKey}
               geography={geo}
               tabIndex={-1}
-              fill={theme.color.foreground}
+              fill={mapColor}
               stroke={"gray"}
               style={{
                 default: { outline: "none" },
@@ -44,11 +44,11 @@ export const Map = withTheme(({ file, locations, markerOffset, theme }, props) =
 
       {locations.map(({ name, latitude, longitude }) => (
         <Marker key={name} coordinates={[latitude, longitude]}>
-          <circle r={theme.radius.small} fill={theme.color.secondary} stroke={theme.color.background} strokeWidth={1} />
+          <circle r={theme.radius.small} fill={locationPointColor} stroke={theme.color.background} strokeWidth={1} />
           <text
             textAnchor="middle"
             y={markerOffset}
-            fill={theme.color.primary}
+            fill={locationTextColor}
             fontSize={"0.75em"}
           >
             {name}
