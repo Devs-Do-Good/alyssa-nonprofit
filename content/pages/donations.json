@@ -1,4 +1,13 @@
 {
   "title": "Donations",
-  "path": "/donate"
+  "path": "/donate",
+  "blocks": [
+    {
+      "mapType": "Kenya",
+      "locations": [],
+      "_template": "DonateFormBlock",
+      "content": "",
+      "hideDonationMeter": true
+    }
+  ]
 }
