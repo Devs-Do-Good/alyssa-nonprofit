@@ -7,7 +7,7 @@
       "locations": [],
       "_template": "DonateFormBlock",
       "content": "",
-      "hideDonationMeter": false
+      "hideDonationMeter": true
     }
   ]
 }
