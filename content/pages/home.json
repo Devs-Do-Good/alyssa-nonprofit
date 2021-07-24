@@ -21,7 +21,8 @@
         }
       ],
       "_template": "LocationsMapBlock",
-      "content": ""
+      "content": "",
+      "mapColor": "#7D3737"
     },
     {
       "_template": "ContentBlock",
