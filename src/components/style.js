@@ -40,7 +40,9 @@ export const Reset = css`
     font-family: 'Bellefair', serif;
   }
 
-  h1,
+  h1 {
+    font-family: 'Playfair Display', serif;
+  }
   h2,
   h3,
   h4,

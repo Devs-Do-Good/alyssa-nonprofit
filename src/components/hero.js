@@ -93,7 +93,7 @@ const HeroBackground = styled.div`
     `}
 `
 
-export const Headline = styled.h2`
+export const Headline = styled.h1`
   font-size: 2.6em;
   line-height: 1.2;
   color: ${props => props.theme.color.white};
