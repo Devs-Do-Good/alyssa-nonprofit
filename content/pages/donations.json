@@ -3,8 +3,12 @@
   "path": "/donate",
   "blocks": [
     {
+      "content": "The Teti Project strives to improve the state of Sexual and Reproductive Health in Kenyan schools. This goal is accomplished only through providing the necessary resources to ensure young girls become comfortable with women's hygiene and no longer feel excluded due to their periods. \n\nThis summer we are traveling to Monga County and Kajiado, partnering with different schools to provide girls with women's hygiene kits. These kits last for three to four years and are purchased through Days For Girls Kenya. \n\nWe ultimately hope to de-stigmatize the conversation around sexual and reproductive health. As well as making sure menstrual cycles do not prohibit girls in Kenya from access to educational spaces.",
+      "center": false,
+      "_template": "ContentBlock"
+    },
+    {
       "mapType": "Kenya",
-      "locations": [],
       "_template": "DonateFormBlock",
       "content": "",
       "hideDonationMeter": true
