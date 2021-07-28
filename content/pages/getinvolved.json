@@ -9,6 +9,11 @@
       "content": ""
     },
     {
+      "content": "#### **You can contact us here with any questions!**",
+      "center": false,
+      "_template": "ContentBlock"
+    },
+    {
       "_template": "FormBlock",
       "name": "Contact Form",
       "fields": [
@@ -33,11 +38,6 @@
       ],
       "content": "",
       "recipient": "thetetiprojectke@gmail.com"
-    },
-    {
-      "content": "You can contact us here with any questions",
-      "center": false,
-      "_template": "ContentBlock"
     }
   ],
   "displayTitle": true
