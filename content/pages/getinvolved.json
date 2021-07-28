@@ -40,5 +40,8 @@
       "recipient": "thetetiprojectke@gmail.com"
     }
   ],
-  "displayTitle": true
+  "displayTitle": true,
+  "hero": {
+    "headline": "Get Involved"
+  }
 }
