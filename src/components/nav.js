@@ -1,11 +1,12 @@
 import React, { useState } from "react"
+import { useMediaQueries } from '@react-hook/media-query'
 import { useStaticQuery, graphql } from "gatsby"
 import { Moon, Sun } from "styled-icons/boxicons-regular"
-import styled, { css } from "styled-components"
+import styled, { css, withTheme } from "styled-components"
 import { mix, transparentize } from "polished"
 import { Link } from "gatsby"
 
-export const Nav = ({ toggleDarkMode, isDarkMode }) => {
+export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
   const data = useStaticQuery(graphql`
     query navQuery {
       settingsJson(fileRelativePath: { eq: "/content/settings/menu.json" }) {
@@ -19,12 +20,37 @@ export const Nav = ({ toggleDarkMode, isDarkMode }) => {
     setNavOpen(!navOpen)
   }
 
+  const {matchesAll} = useMediaQueries({
+    screen: 'screen',
+    width: `(max-width: ${theme.breakpoints.small})`
+  })
+
   const menu = data.settingsJson
 
   return (
     <>
       <StyledNavbar navOpen={navOpen} isDarkMode={isDarkMode}>
-        {menu.menuItems.map(item => (
+        {menu.menuItems.map((item, i) => (
+          item.subMenu !== null ? 
+          <NavDropdown key={item.label}>
+            <NavDropdownButton>
+              {item.label}
+            </NavDropdownButton>
+            <DropdownContent style={{top: matchesAll && `calc(${i + 1} * ${theme.header.height})`}}>
+              {item.subMenu.map((subItem) => (
+                <NavItem className='dropdown-item' key={subItem.label}>
+                  <NavLink
+                    onClick={toggleNavOpen}
+                    partiallyActive={subItem.link === "/" ? false : true}
+                    to={subItem.link}
+                  >
+                    {subItem.label}
+                  </NavLink>
+                </NavItem>
+              ))}
+            </DropdownContent>
+          </NavDropdown>
+          :
           <NavItem key={item.label}>
             <NavLink
               onClick={toggleNavOpen}
@@ -43,7 +69,7 @@ export const Nav = ({ toggleDarkMode, isDarkMode }) => {
       ></NavToggle>
     </>
   )
-}
+})
 
 export const StyledNavbar = styled.ul`
   color: inherit;
@@ -121,6 +147,31 @@ export const NavItem = styled.li`
       border-bottom: 1px solid
         ${props => transparentize(0.85, props.theme.color.white)};
     }
+  }
+
+  &.dropdown-item {
+    margin: 0.625rem 0;
+  }
+`
+
+export const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  top: calc(${props => props.theme.header.height} - 0.75rem);
+  background-color: #f9f9f9;
+  width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+  & > ${NavItem} {
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.small}) {
+    left: calc(50% - 80px);
   }
 `
 
@@ -335,6 +386,28 @@ export const NavLink = styled(({ children, ...styleProps }) => (
     `}
 `
 
+export const NavDropdown = styled(NavItem)`
+  display: flex;
+  align-items: stretch;
+  color: inherit;
+  @media (max-width: ${props => props.theme.breakpoints.small}) {
+    &:not(:last-child) {
+      border-bottom: 1px solid
+        ${props => transparentize(0.85, props.theme.color.white)};
+    }
+  }
+  &:hover ${DropdownContent} {
+    display: inline-block;
+  }
+`
+
+export const NavDropdownButton = styled(NavLink)`
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+`
+
 export const NavToggle = styled(({ menuOpen, ...styleProps }) => {
   return (
     <button {...styleProps}>
@@ -473,6 +546,11 @@ export const navFragment = graphql`
     menuItems {
       link
       label
+
+      subMenu {
+        link
+        label
+      }
     }
   }
 `
