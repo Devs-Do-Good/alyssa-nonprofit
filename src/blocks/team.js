@@ -63,7 +63,7 @@ const TeamUser = styled.div`
         opacity: 0;
         transition: opacity 0.2s ease;
         font-size: 0.875rem;
-        line-height: 2.375rem;
+        line-height: 1rem;
     }
 `
 
