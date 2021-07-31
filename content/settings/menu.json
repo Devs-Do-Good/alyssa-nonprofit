@@ -38,7 +38,13 @@
     },
     {
       "label": "Get Involved",
-      "link": "/getinvolved"
+      "link": "",
+      "subMenu": [
+        {
+          "label": "Contact Us",
+          "link": "/getinvolved/contact"
+        }
+      ]
     },
     {
       "label": "Donate!",
