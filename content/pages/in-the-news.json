@@ -1,0 +1,11 @@
+{
+  "title": "In the News",
+  "path": "/inthenews",
+  "pageType": "list",
+  "listType": "news",
+  "hero": {
+    "image": "../images/random-blue-image.jpg",
+    "large": true,
+    "overlay": true
+  }
+}
