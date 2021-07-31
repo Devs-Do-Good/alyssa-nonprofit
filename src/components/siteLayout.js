@@ -66,6 +66,34 @@ const CreatePostButton = createRemarkButton({
   ],
 })
 
+const CreateInitiativeButton = createRemarkButton({
+  label: "New Initiative",
+  filename(form) {
+    let slug = slugify(form.title.toLowerCase())
+    return `content/initiatives/${slug}.md`
+  },
+  frontmatter(form) {
+    let slug = slugify(form.title.toLowerCase())
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: form.title,
+          date: new Date(),
+          type: "initiative",
+          path: `/initiatives/${slug}`,
+          draft: true,
+        })
+      }, 1000)
+    })
+  },
+  body({ title }) {
+    return `## ${title}`
+  },
+  fields: [
+    { name: "title", label: "Title", component: "text", required: true },
+  ],
+})
+
 const CreatePageButton = new JsonCreatorPlugin({
   label: "New Page",
   filename(form) {
@@ -84,7 +112,7 @@ const CreatePageButton = new JsonCreatorPlugin({
   },
 })
 
-export default withPlugin(MasterLayout, [CreatePostButton, CreatePageButton])
+export default withPlugin(MasterLayout, [CreatePostButton, CreateInitiativeButton, CreatePageButton])
 
 export const Site = styled.div`
   position: relative;
