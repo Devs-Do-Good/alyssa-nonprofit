@@ -183,7 +183,7 @@ const ListForm = {
           label: "Image",
           name: "image",
           component: "image",
-          parse: (filename) => `../images/${filename}`,
+          parse: (media) => `../images/${media.filename}`,
           uploadDir: () => `/content/images/`,
           previewSrc: (formValues) => {
             if (!formValues.jsonNode.hero || !formValues.jsonNode.hero.image)
