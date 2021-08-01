@@ -8,7 +8,6 @@ export function LocationsMap({ data }) {
     }
     return (
         <MapWrapper>
-            {data.mapType}
             <Map
                 file={data.mapType}
                 locations={data.locations}
