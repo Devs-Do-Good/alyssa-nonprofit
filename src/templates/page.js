@@ -7,6 +7,7 @@ import { Image, ImageBlock } from "../blocks/image"
 import { Content, ContentBlock } from "../blocks/content"
 import { LocationsMap, LocationsMapBlock } from "../blocks/locations-map"
 import { DonateForm, DonateFormBlock } from "../blocks/donate";
+import { TeamSection, TeamSectionBlock } from "../blocks/team"
 import { PageLayout } from "../components/pageLayout"
 
 import { useLocalJsonForm } from "gatsby-tinacms-json"
@@ -47,6 +48,8 @@ export default function Page({ data }) {
                 return <LocationsMap data={blocksJson[i]} />
               case "DonateFormBlock":
                 return <DonateForm data={blocksJson[i]} />
+              case "TeamSectionBlock":
+                return <TeamSection data={data} />
               default:
                 return true
             }
@@ -83,9 +86,9 @@ const PageForm = {
           label: "Image",
           name: "image",
           component: "image",
-          parse: (filename) => `../images/${filename}`,
+          parse: (media) => `../images/${media.filename}`,
           uploadDir: () => `/content/images/`,
-          previewSrc: (formValues, input) => {
+          previewSrc: (formValues) => {
             if (!formValues.jsonNode.hero || !formValues.jsonNode.hero.image)
               return ""
             return formValues.jsonNode.hero.image.childImageSharp.fluid.src
@@ -140,6 +143,7 @@ const PageForm = {
         ContentBlock,
         LocationsMapBlock,
         DonateFormBlock,
+        TeamSectionBlock,
       },
     },
   ],
@@ -181,6 +185,16 @@ export const pageQuery = graphql`
           label
           inputType
           autocomplete
+          name
+          position
+          description
+          image {
+            childImageSharp {
+              fluid(quality: 70, maxWidth: 1920) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
         image {
           childImageSharp {

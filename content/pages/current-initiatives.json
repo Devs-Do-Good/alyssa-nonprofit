@@ -1,0 +1,11 @@
+{
+  "path": "/initiatives",
+  "title": "Current Initiatives",
+  "pageType": "list",
+  "listType": "initiative",
+  "hero": {
+    "image": "../images/random-blue-image.jpg",
+    "large": true,
+    "overlay": true
+  }
+}

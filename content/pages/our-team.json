@@ -1,0 +1,24 @@
+{
+  "title": "Our Team",
+  "path": "/about/team",
+  "blocks": [
+    {
+      "content": "## Meet our Team",
+      "center": false,
+      "_template": "ContentBlock"
+    },
+    {
+      "_template": "TeamSectionBlock",
+      "content": "",
+      "fields": [
+        {
+          "_template": "TeamMemberBlock",
+          "image": "../images/abstract-user-flat-1.png",
+          "name": "Alyssa Makena",
+          "position": "Founder",
+          "description": "Alyssa founded the Teti Project! This is a small description of her."
+        }
+      ]
+    }
+  ]
+}

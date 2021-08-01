@@ -19,12 +19,32 @@
       ]
     },
     {
-      "label": "Blog",
-      "link": "/blog"
+      "label": "What We Do",
+      "link": "",
+      "subMenu": [
+        {
+          "label": "Blog",
+          "link": "/blog"
+        },
+        {
+          "label": "Current Initiatives",
+          "link": "/initiatives"
+        },
+        {
+          "label": "In the News",
+          "link": "/inthenews"
+        }
+      ]
     },
     {
       "label": "Get Involved",
-      "link": "/getinvolved"
+      "link": "",
+      "subMenu": [
+        {
+          "label": "Contact Us",
+          "link": "/getinvolved/contact"
+        }
+      ]
     },
     {
       "label": "Donate!",

@@ -1,6 +1,6 @@
 {
   "title": "Contact Us",
-  "path": "/getinvolved",
+  "path": "/getinvolved/contact",
   "blocks": [
     {
       "_template": "TitleBlock",
