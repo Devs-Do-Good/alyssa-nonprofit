@@ -7,7 +7,7 @@ export function DonateForm({ data }) {
             <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
             <FrameWrapper>
                 <iframe 
-                    src={`https://donorbox.org/embed/the-teti-project-2?default_interval=o&hide_donation_meter=${data.hideDonationMeter}`}
+                    src={`${data.donationLink}?default_interval=o&hide_donation_meter=${data.hideDonationMeter}`}
                     name="donorbox"
                     allowpaymentrequest=""
                     seamless="seamless"
@@ -57,5 +57,10 @@ export const DonateFormBlock = {
             label: "Hide Donation Meter",
             component: "toggle",
         },
+        {
+            name: "donationLink",
+            label: "Link to Donorbox Campaign Embed",
+            component: "text",
+        }
     ],
 }
