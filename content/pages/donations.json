@@ -8,10 +8,16 @@
       "_template": "ContentBlock"
     },
     {
-      "mapType": "Kenya",
       "_template": "DonateFormBlock",
       "content": "",
-      "hideDonationMeter": true
+      "hideDonationMeter": true,
+      "donationLink": "https://donorbox.org/embed/the-teti-project-2"
     }
-  ]
+  ],
+  "hero": {
+    "large": true,
+    "image": "../images/Kenya Park.jpeg",
+    "headline": "Help Kenya Shine Bright!",
+    "textline": "Donate to The Teti Project"
+  }
 }
