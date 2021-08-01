@@ -38,15 +38,13 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
             </NavDropdownButton>
             <DropdownContent style={{top: matchesAll && `calc(${i + 1} * ${theme.header.height})`}}>
               {item.subMenu.map((subItem) => (
-                <NavItem className='dropdown-item' key={subItem.label}>
-                  <NavLink
+                  <NavDropdownLink
                     onClick={toggleNavOpen}
                     partiallyActive={subItem.link === "/" ? false : true}
                     to={subItem.link}
                   >
                     {subItem.label}
-                  </NavLink>
-                </NavItem>
+                  </NavDropdownLink>
               ))}
             </DropdownContent>
           </NavDropdown>
@@ -175,6 +173,45 @@ export const DropdownContent = styled.div`
   }
 `
 
+export const NavDropdownLink = styled(({ children, ...styleProps }) => (
+  <Link activeClassName="active" {...styleProps} isCurrent>
+    <span>{children}</span>
+  </Link>
+))`
+  flex: 1 0 auto;
+  line-height: ${props => props.theme.header.height}
+  padding: 0 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: inherit !important;
+  opacity: 0.5;
+  overflow: visible;
+  transition: all 150ms ${p => p.theme.easing};
+  padding: 0.625rem 0;
+  
+  & span {
+    color: black;
+  }
+
+  &:hover,
+  &:active,
+  &.active {
+    opacity: 1;
+    background-image: linear-gradient(#D3D3D3, #BDBDBD);
+  }
+
+  &.active {
+    background-image: linear-gradient(#D3D3D3, #9E9E9E);
+  }
+`
+
 export const NavLink = styled(({ children, ...styleProps }) => (
   <Link activeClassName="active" {...styleProps} isCurrent>
     <span>{children}</span>
@@ -195,7 +232,6 @@ export const NavLink = styled(({ children, ...styleProps }) => (
   opacity: 0.5;
   overflow: visible;
   transition: all 150ms ${p => p.theme.easing};
-  z-index: 1;
 
   &:focus-visible {
     opacity: 1;
