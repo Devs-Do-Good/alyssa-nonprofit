@@ -47,16 +47,12 @@
       ]
     },
     {
-      "label": "Donate!",
+      "label": "Donate",
       "link": "/donate",
       "subMenu": [
         {
-          "label": "Health Hygiene Kits",
-          "link": "/donate/kits"
-        },
-        {
-          "label": "Book Drive",
-          "link": "/donate/bookdrive"
+          "label": "Our Project",
+          "link": "/donate"
         }
       ]
     }

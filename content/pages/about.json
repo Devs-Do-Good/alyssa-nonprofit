@@ -1,6 +1,6 @@
 {
   "title": "About",
-  "path": "/about",
+  "path": "/about/mission",
   "blocks": [
     {
       "_template": "TitleBlock",
