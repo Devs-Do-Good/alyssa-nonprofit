@@ -19,6 +19,7 @@ const StyledContent = styled.div`
     css`
       text-align: center;
     `};
+  padding-bottom: 2rem;
 `
 
 export const ContentBlock = {
