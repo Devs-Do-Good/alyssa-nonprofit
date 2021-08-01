@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useMediaQueries } from '@react-hook/media-query'
 import { useStaticQuery, graphql } from "gatsby"
 import { Moon, Sun } from "styled-icons/boxicons-regular"
 import styled, { css, withTheme } from "styled-components"
@@ -20,11 +19,6 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
     setNavOpen(!navOpen)
   }
 
-  const {matchesAll} = useMediaQueries({
-    screen: 'screen',
-    width: `(max-width: ${theme.breakpoints.small})`
-  })
-
   const menu = data.settingsJson
 
   return (
@@ -36,7 +30,7 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
             <NavDropdownButton>
               {item.label}
             </NavDropdownButton>
-            <DropdownContent style={{top: matchesAll && `calc(${i + 1} * ${theme.header.height})`}}>
+            <DropdownContent index={i}>
               {item.subMenu.map((subItem) => (
                   <NavDropdownLink
                     onClick={toggleNavOpen}
@@ -170,6 +164,9 @@ export const DropdownContent = styled.div`
 
   @media (max-width: ${props => props.theme.breakpoints.small}) {
     left: calc(50% - 80px);
+    top: calc(${props => props.index + 1} * ${props => props.theme.header.height});
+    top: -webkit-calc(${props => props.index + 1} * ${props => props.theme.header.height});
+    top: -moz-calc(${props => props.index + 1} * ${props => props.theme.header.height});
   }
 `
 
