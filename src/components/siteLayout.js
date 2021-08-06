@@ -11,6 +11,8 @@ import { createRemarkButton } from "gatsby-tinacms-remark"
 import { JsonCreatorPlugin } from "gatsby-tinacms-json"
 import { withPlugin } from "tinacms"
 
+export const PostDataContext = React.createContext([]);
+
 const MasterLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query MasterLayoutQuery {
@@ -18,6 +20,26 @@ const MasterLayout = ({ children }) => {
         fileRelativePath: { eq: "/content/settings/site.json" }
       ) {
         title
+      }
+
+      posts: allMarkdownRemark(
+        filter: { frontmatter: { path: { ne: null } } }
+      ) {
+        edges {
+          node {
+            published
+            excerpt
+            frontmatter {
+              title
+              date
+              authors
+              path
+              type
+              tags
+              draft
+            }
+          }
+        }
       }
     }
   `)
@@ -30,7 +52,9 @@ const MasterLayout = ({ children }) => {
       <Theme>
         <Site>
           <Header siteTitle={data.site.title} />
-          {children}
+          <PostDataContext.Provider value={data.posts.edges}>
+            {children}
+          </PostDataContext.Provider>
           <Footer />
         </Site>
       </Theme>

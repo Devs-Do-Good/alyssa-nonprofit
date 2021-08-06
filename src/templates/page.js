@@ -8,6 +8,7 @@ import { Content, ContentBlock } from "../blocks/content"
 import { LocationsMap, LocationsMapBlock } from "../blocks/locations-map"
 import { DonateForm, DonateFormBlock } from "../blocks/donate";
 import { TeamSection, TeamSectionBlock } from "../blocks/team"
+import { PostPreview, PostPreviewBlock } from "../blocks/post-preview"
 import { PageLayout } from "../components/pageLayout"
 
 import { useLocalJsonForm } from "gatsby-tinacms-json"
@@ -50,6 +51,8 @@ export default function Page({ data }) {
                 return <DonateForm data={blocksJson[i]} />
               case "TeamSectionBlock":
                 return <TeamSection data={data} />
+              case "PostPreviewBlock":
+                  return <PostPreview data={blocksJson[i]} />
               default:
                 return true
             }
@@ -144,6 +147,7 @@ const PageForm = {
         LocationsMapBlock,
         DonateFormBlock,
         TeamSectionBlock,
+        PostPreviewBlock,
       },
     },
   ],

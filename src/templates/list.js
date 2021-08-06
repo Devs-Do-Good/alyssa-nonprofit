@@ -51,7 +51,7 @@ export default function List({ data, pageContext }) {
                     </MetaSpan>
                   )}
                   <MetaActions>
-                    <Link to={item.node.frontmatter.path}>Read Article →</Link>
+                    <Link to={item.node.frontmatter.path}>Read More →</Link>
                   </MetaActions>
                 </Meta>
               </Paper>
