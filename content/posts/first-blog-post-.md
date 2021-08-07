@@ -3,7 +3,7 @@ title: Thank You!
 date: '2021-05-31T19:31:35.398Z'
 type: post
 path: /blog/first-blog-post-
-draft: false
+draft: true
 authors:
   - alyysa-makena
   - alyssa-makena
