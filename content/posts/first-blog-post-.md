@@ -16,7 +16,7 @@ Thank you to those that donated to the Teti Project this past month! It has been
 
 Our goal is continuous and you all have helped us successfully reach step one. We hope that you look forward to our upcoming initiatives and stay connected through the website and social media!
 
-Follow us @______ on Facebook and @_____ on Instagram.
+Follow us @The Teti Project on Facebook and @TheTetiProjectKE on Instagram.
 
 Best Regards,
 
