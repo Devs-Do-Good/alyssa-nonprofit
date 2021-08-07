@@ -7,10 +7,12 @@ draft: true
 authors:
   - alyysa-makena
   - alyssa-makena
+hero:
+  image: ../images/Screen Shot 2021-08-07 at 5.44.06 PM.png
 ---
 ## A Big Thank You!
 
-Thank you to those that donated to the Teti Project this past month! It has been a long journey but we're proud to say that we have 70% of our goal with the help of many, thus raising money for one-hundred and e women's hygiene kits that will be purchased through Days For Girls Kenya.
+Thank you to those that donated to the Teti Project this past month! It has been a long journey but we're proud to say that we have reached 100% of our goal with the help of many, thus raising money for two hundred and fifty women's hygiene kits that will be purchased through Days For Girls Kenya.
 
 Our goal is continuous and you all have helped us successfully reach step one. We hope that you look forward to our upcoming initiatives and stay connected through the website and social media!
 
