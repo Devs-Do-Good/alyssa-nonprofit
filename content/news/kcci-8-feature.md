@@ -7,6 +7,6 @@ draft: true
 authors:
   - alyysa-makena
 hero:
-  image: ''
+  image: ../images/Screen Shot 2021-08-07 at 6.34.06 PM.png
 ---
 ## KCCI 8 Feature
