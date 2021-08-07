@@ -3,8 +3,8 @@
   "path": "/about/team",
   "blocks": [
     {
-      "content": "## Meet our Team",
-      "center": false,
+      "content": "## Meet our Team! Coming Soon",
+      "center": true,
       "_template": "ContentBlock"
     },
     {
