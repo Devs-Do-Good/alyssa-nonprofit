@@ -2,10 +2,6 @@
   "path": "/",
   "blocks": [
     {
-      "_template": "PostPreviewBlock",
-      "content": ""
-    },
-    {
       "content": "## Get To Know Us\n\nThe Teti Project is an initiative focused on improving conditions of the young women and girls of Kenya through education. Our work focuses on dealing with the state of reproductive and health education in Kenya while also engaging in the improvement of the overall educational opportunities for young women in Kenya. ",
       "center": false,
       "_template": "ContentBlock"
