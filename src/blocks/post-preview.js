@@ -23,6 +23,9 @@ export function PostPreview({ data }) {
     })
     const post = posts.length ? posts[0] : null;
 
+    if (data.postType === undefined || data.postType === null)
+        return null
+
     return (
         <>
             <h2>{data.heading}</h2>
@@ -92,6 +95,9 @@ export const PostPreviewBlock = {
   key: "postPreview",
   name: "postPreview",
   component: "group",
+  defaultItem: {
+    postType: Object.values(postTypeOptions).length ? Object.values(postTypeOptions)[0] : '',
+  },
   fields: [
     {
         name: "postType",
