@@ -1,0 +1,16 @@
+---
+title: WDMCS Feature
+date: '2021-08-07T22:25:29.723Z'
+type: news
+path: /inthenews/wdmcs-feature
+draft: true
+hero:
+  image: ../images/Screen Shot 2021-08-07 at 5.34.10 PM.png
+---
+## Check Us Out on WDMCS!
+
+Thank you to Alexandra Wade for the wonderful article she wrote on The Teti Project! It was a pleasure to speak with her about the problems facing young women in Kenya today and the work we plan on doing this summer. Don't miss out!
+
+[Click Here!](https://www.wdmcs.org/site/default.aspx?PageType=3&DomainID=4&ModuleInstanceID=893&ViewID=6446EE88-D30C-497E-9316-3F8874B3E108&RenderLoc=0&FlexDataID=15238&PageID=1)
+
+The Teti Project
