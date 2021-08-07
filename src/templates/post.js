@@ -67,12 +67,6 @@ function Post(props) {
           return formValues.frontmatter.hero.image.childImageSharp.fluid.src
         },
       },
-      {
-        label: "Tags",
-        name: "rawFrontmatter.tags",
-        component: "tags",
-        tags: tags,
-      },
     ],
   }
 
@@ -150,7 +144,6 @@ export const postQuery = graphql`
             }
           }
         }
-        tags
       }
 
       fileRelativePath
@@ -159,9 +152,6 @@ export const postQuery = graphql`
     }
     authors: settingsJson(fileRelativePath: { eq: "/content/settings/authors.json" }) {
       ...authors
-    }
-    tags: settingsJson(fileRelativePath: { eq: "/content/settings/tags.json" }) {
-      ...tags
     }
   }
 `

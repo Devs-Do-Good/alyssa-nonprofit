@@ -16,7 +16,6 @@ import { Link } from "gatsby"
 import { PageLayout } from "../components/pageLayout"
 
 export default function List({ data, pageContext }) {
-  const [tags] = useLocalJsonForm(data.tags, TagsForm)
   const [page] = useLocalJsonForm(data.page, ListForm)
   const [authors] = useLocalJsonForm(data.authors, AuthorsForm)
 
@@ -121,7 +120,6 @@ export const pageQuery = graphql`
             title
             draft
             authors
-            tags
           }
         }
       }
@@ -130,14 +128,6 @@ export const pageQuery = graphql`
       fileRelativePath: { eq: "/content/settings/authors.json" }
     ) {
       ...authors
-
-      rawJson
-      fileRelativePath
-    }
-    tags: settingsJson(
-      fileRelativePath: { eq: "/content/settings/tags.json" }
-    ) {
-      ...tags
 
       rawJson
       fileRelativePath

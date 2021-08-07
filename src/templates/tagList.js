@@ -79,7 +79,7 @@ export default function TagList({ data, pageContext }) {
 }
 
 export const pageQuery = graphql`
-  query($listType: String!, $slug: String!, $skip: Int!, $limit: Int!, $tagID: String!) {
+  query($listType: String!, $slug: String!, $skip: Int!, $limit: Int!) {
     page: pagesJson(path: { eq: $slug }) {
       path
       title
@@ -111,7 +111,6 @@ export const pageQuery = graphql`
       filter: {
         frontmatter: { 
           type: { eq: $listType },
-          tags: { eq: $tagID }
         }
         published: { eq: true }
       }
@@ -128,7 +127,6 @@ export const pageQuery = graphql`
             title
             draft
             authors
-            tags
           }
         }
       }
@@ -137,14 +135,6 @@ export const pageQuery = graphql`
       fileRelativePath: { eq: "/content/settings/authors.json" }
     ) {
       ...authors
-
-      rawJson
-      fileRelativePath
-    }
-    tags: settingsJson(
-      fileRelativePath: { eq: "/content/settings/tags.json" }
-    ) {
-      ...tags
 
       rawJson
       fileRelativePath

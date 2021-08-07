@@ -35,7 +35,6 @@ const MasterLayout = ({ children }) => {
               authors
               path
               type
-              tags
               draft
             }
           }
@@ -43,6 +42,7 @@ const MasterLayout = ({ children }) => {
       }
     }
   `)
+  console.log(data)
 
   return (
     <>
