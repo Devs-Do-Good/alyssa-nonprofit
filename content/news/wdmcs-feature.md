@@ -3,7 +3,7 @@ title: WDMCS Feature
 date: '2021-08-07T22:25:29.723Z'
 type: news
 path: /inthenews/wdmcs-feature
-draft: true
+draft: false
 hero:
   image: ../images/Screen Shot 2021-08-07 at 5.33.17 PM.png
 ---
