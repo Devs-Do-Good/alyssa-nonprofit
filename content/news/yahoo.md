@@ -1,5 +1,5 @@
 ---
-title: YAHOO News
+title: Yahoo News
 date: '2021-08-08T20:29:21.309Z'
 type: news
 path: /inthenews/yahoo
