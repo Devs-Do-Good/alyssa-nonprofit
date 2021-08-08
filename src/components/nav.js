@@ -20,6 +20,7 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
   }
 
   const menu = data.settingsJson
+  console.log(menu)
 
   return (
     <>
@@ -27,8 +28,8 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
         {menu.menuItems.map((item, i) => (
           item.subMenu !== null ? 
           <NavDropdown key={item.label}>
-            <NavDropdownButton>
-              {item.label}
+            <NavDropdownButton style={item.emphasis ? {backgroundColor: theme.color.primary} : {}}>
+              <span style={item.emphasis ? {textShadow: '0px 1px, 1px 0px, 1px 1px', color: 'black'} : {}}>{item.label}</span>
             </NavDropdownButton>
             <DropdownContent index={i}>
               {item.subMenu.map((subItem) => (
@@ -43,13 +44,13 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
             </DropdownContent>
           </NavDropdown>
           :
-          <NavItem key={item.label}>
+          <NavItem key={item.label} style={item.emphasis ? {backgroundColor: theme.color.primary} : {}}>
             <NavLink
               onClick={toggleNavOpen}
               partiallyActive={item.link === "/" ? false : true}
               to={item.link}
-            >
-              {item.label}
+            > 
+              <span style={{textShadow: item.emphasis ? '0px 1px, 1px 0px, 1px 1px' : ''}}>{item.label}</span>
             </NavLink>
           </NavItem>
         ))}
@@ -211,7 +212,7 @@ export const NavDropdownLink = styled(({ children, ...styleProps }) => (
 
 export const NavLink = styled(({ children, ...styleProps }) => (
   <Link activeClassName="active" {...styleProps} isCurrent>
-    <span>{children}</span>
+    <span style={{fontWeight: styleProps.emphasis ? 'bold' : 'normal'}}>{children}</span>
   </Link>
 ))`
   flex: 1 0 auto;
@@ -579,6 +580,7 @@ export const navFragment = graphql`
     menuItems {
       link
       label
+      emphasis
 
       subMenu {
         link
@@ -614,6 +616,14 @@ export const NavForm = {
           parse(value) {
             return value || ""
           },
+        },
+        {
+          label: "Emphasize Item",
+          name: "emphasis",
+          component: "toggle",
+          parse(value) {
+            return value || false;
+          }
         },
         {
           label: "Sub Menu",

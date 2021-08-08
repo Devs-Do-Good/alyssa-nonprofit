@@ -2,7 +2,8 @@
   "menuItems": [
     {
       "label": "Home",
-      "link": "/"
+      "link": "/",
+      "emphasis": false
     },
     {
       "label": "About",
@@ -16,7 +17,8 @@
           "label": "Our Team",
           "link": "/about/team"
         }
-      ]
+      ],
+      "emphasis": false
     },
     {
       "label": "What We Do",
@@ -54,7 +56,8 @@
           "label": "Our Project",
           "link": "/donate"
         }
-      ]
+      ],
+      "emphasis": true
     }
   ]
 }
