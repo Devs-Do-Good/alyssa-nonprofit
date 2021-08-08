@@ -7,7 +7,6 @@ draft: false
 hero:
   image: ../images/MSN-logo.jpg
 ---
-## MSN.COM
 
 ![](http://localhost:8000/static/82159df7cc0895e0552db75a7624db2b/89f0c/MSN-logo.jpg)
 
