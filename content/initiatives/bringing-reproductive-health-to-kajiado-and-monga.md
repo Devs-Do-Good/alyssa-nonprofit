@@ -4,6 +4,8 @@ date: '2021-08-08T06:11:15.657Z'
 type: initiative
 path: /initiatives/bringing-reproductive-health-to-kajiado-and-monga
 draft: true
+hero:
+  image: ../images/Kenya one.jpg
 ---
 ## Bringing Reproductive Health to Kajiado County and Monga Village
 
