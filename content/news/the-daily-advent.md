@@ -7,10 +7,9 @@ draft: false
 hero:
   image: ../images/Daily Advent.jpg
 ---
-## Daily Advent
 
 ![](http://localhost:8000/static/80c599472587e59858e771b3af64a85b/a731b/Daily%20Advent.jpg)
 
-Check us out on Daily Advent Opera News!
+Check us out on Daily Advent Opera News
 
 [Click Here]()
