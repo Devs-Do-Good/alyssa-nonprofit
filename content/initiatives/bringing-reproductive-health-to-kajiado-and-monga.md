@@ -11,8 +11,8 @@ The Teti Project strives to improve the state of Sexual and Reproductive Health 
 
 This summer we are traveling to Monga County and Kajiado, partnering with three different schools, Monga Primary, Monga High School and Kajiado High School, to provide girls with women's hygiene kits. These kits last for three to four years and are purchased through Days For Girls Kenya.
 
-We will be providing two hundred and fifty Smart Starter kits, purchased through Days For Girls Kenya, and will be engaging students through in-depth lessons on Sexual and Reproductive Health. Our time at each school will be focused on helping young women feel more comfortable with topics concerning their body and building trust with each community to ensure we create spaces that foster discourse.Â 
+We will be providing two hundred and fifty Smart Starter kits, purchased through Days For Girls Kenya, and will be engaging students through in-depth lessons on Sexual and Reproductive Health. Our time at each school will be focused on helping young women feel more comfortable with topics concerning their body and building trust with each community to ensure we create spaces that foster discourse.
 
 We ultimately hope to de-stigmatize the conversation around sexual and reproductive health. As well as making sure menstrual cycles do not prohibit girls in Kenya from access to educational spaces.
 
-For updates follow us on Facebook @TheTetiProject and on Instagram @TheTetiPro
+For updates follow us on Facebook @TheTetiProject and on Instagram @TheTetiProjectKE
