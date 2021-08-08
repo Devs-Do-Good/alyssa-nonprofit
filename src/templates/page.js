@@ -191,6 +191,7 @@ export const pageQuery = graphql`
           autocomplete
           name
           position
+          hide
           description
           image {
             childImageSharp {

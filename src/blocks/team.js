@@ -3,13 +3,17 @@ import Image from "gatsby-image"
 import styled from "styled-components"
 
 export function TeamSection({ data }) {
-    console.log(data)
-    return (
+    if (data === null || data === undefined)
+        return null
+
+    const members = data.fields.filter((member) => member !== null && member !== undefined && !member.hide)
+
+    return members.length ? (
         <TeamGrid>
-            {data.fields.map((member) => (
+            {members.map((member) => (
                 <TeamColumn>
                     <TeamUser>
-                        <div class="avatar-wrapper"><Image className="avatar" fluid={member.image.childImageSharp.fluid} /></div>
+                        <div class="avatar-wrapper">{member.image && <Image className="avatar" fluid={member.image.childImageSharp.fluid} />}</div>
                         <div class="member-name">{member.name}</div>
                         <div class="member-title">{member.position}</div>
                         <div class="member-description">
@@ -19,7 +23,7 @@ export function TeamSection({ data }) {
                 </TeamColumn>
             ))}
         </TeamGrid>
-    )
+    ) : null;
 }
 
 const TeamUser = styled.div`
@@ -124,6 +128,12 @@ export const TeamMemberBlock = {
     key: "teamMember",
     name: "teamMember",
     component: "group",
+    defaultItem: {
+        name: "",
+        position: "",
+        description: "",
+        hide: false,
+    },
     fields: [
         {
             label: "Member's Photo",
@@ -158,6 +168,11 @@ export const TeamMemberBlock = {
             name: "description",
             component: "text",
         },
+        {
+            label: "Hide",
+            name: "hide",
+            component: "toggle",
+        }
     ],
 }
 

@@ -16,7 +16,8 @@
           "image": "../images/abstract-user-flat-1.png",
           "name": "Alyssa Makena",
           "position": "Founder",
-          "description": "Alyssa founded the Teti Project! This is a small description of her."
+          "description": "Alyssa founded the Teti Project! This is a small description of her.",
+          "hide": true
         }
       ]
     }
