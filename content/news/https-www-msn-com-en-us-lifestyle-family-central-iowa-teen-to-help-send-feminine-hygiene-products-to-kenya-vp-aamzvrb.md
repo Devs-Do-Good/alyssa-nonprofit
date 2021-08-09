@@ -1,12 +1,12 @@
 ---
 title: ''
-date: '2021-08-09T06:07:39.033Z'
+date: '2021-08-09T20:26:27.347Z'
 type: news
-image: ../images/kesq.jpg
+image: ../images/undefined
+link: >-
+  https://abc17news.com/cnn-regional/2021/08/06/iowa-teen-will-help-send-feminine-hygiene-products-to-kenya/
 path: >-
   /inthenews/https-www-msn-com-en-us-lifestyle-family-central-iowa-teen-to-help-send-feminine-hygiene-products-to-kenya-vp-aamzvrb
-link: >-
-  https://kesq.com/cnn-regional/2021/08/06/iowa-teen-will-help-send-feminine-hygiene-products-to-kenya/
 hideOnPreview: true
 draft: false
 ---
