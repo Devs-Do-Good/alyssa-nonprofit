@@ -140,7 +140,7 @@ const CreateNewsImageButton = createRemarkButton({
         resolve({
           date: new Date(),
           type: "news",
-          image: form.image,
+          image: form.image || '../images/news_default.png',
           link: form.link,
           path: `/inthenews/${slug}`,
           hideOnPreview: true,
