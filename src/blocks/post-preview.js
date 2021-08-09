@@ -54,7 +54,7 @@ export function PostPreview({ data }) {
                         </Meta>
                         </PostPreviewInner>
                     </PostPreviewWrapper>
-                    <p>Click <Link to={data.viewMoreLink}>here</Link> to view more {data.postType.toLowerCase()}</p>
+                    <p>{data.viewMoreTextBefore} <Link to={data.viewMoreLink}>{data.viewMoreTextLink}</Link> {data.viewMoreTextAfter}</p>
                 </>
             }  
             {post === null && 
@@ -114,6 +114,21 @@ export const PostPreviewBlock = {
     {
         name: "viewMoreLink",
         label: "View More Link",
+        component: "text",
+    },
+    {
+        name: "viewMoreTextBefore",
+        label: "View More Text Before Link",
+        component: "text",
+    },
+    {
+        name: "viewMoreTextLink",
+        label: "View More Link Text",
+        component: "text",
+    },
+    {
+        name: "viewMoreTextAfter",
+        label: "View More Text After Link",
         component: "text",
     },
   ],
