@@ -2,7 +2,7 @@
 title: ''
 date: '2021-08-09T15:38:08.812Z'
 type: news
-image: ../images/Unknown.jpg
+image: ../images/local news 8.png
 link: >-
   https://localnews8.com/cnn-regional/2021/08/06/iowa-teen-will-help-send-feminine-hygiene-products-to-kenya/
 path: >-
