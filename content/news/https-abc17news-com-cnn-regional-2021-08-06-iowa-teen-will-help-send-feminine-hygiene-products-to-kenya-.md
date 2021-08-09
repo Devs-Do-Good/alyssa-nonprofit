@@ -2,7 +2,7 @@
 title: ''
 date: '2021-08-09T20:19:03.484Z'
 type: news
-image: ../images/flipboard.png
+image: ../images/flipboard logo.jpeg
 link: >-
   Central Iowa teen to help send feminine hygiene products to
   ...https://flipboard.com › profile › @KCCI2020
