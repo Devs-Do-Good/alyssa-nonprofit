@@ -12,6 +12,7 @@ import { PostDataContext } from "../components/siteLayout";
 export function PostPreview({ data }) {
     const allPosts = React.useContext(PostDataContext);
     let posts = allPosts.filter((post) => 
+        !post.node.frontmatter.hideOnPreview &&
         !post.node.frontmatter.draft &&
         post.node.frontmatter.type === postTypeOptions[data.postType]
     );
@@ -55,7 +56,7 @@ export function PostPreview({ data }) {
                     </PostPreviewWrapper>
                     <p>Click <Link to={data.viewMoreLink}>here</Link> to view more {data.postType.toLowerCase()}</p>
                 </>
-            }
+            }  
             {post === null && 
                 <p>There aren't any {data.postType.toLowerCase()} published yet. When they're posted, you can view them <Link to={data.viewMoreLink}>here</Link>.</p>
             }

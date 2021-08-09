@@ -112,6 +112,7 @@ export const globalThemeFragment = graphql`
     easing
     breakpoints {
       small
+      smallish
       medium
       large
       huge

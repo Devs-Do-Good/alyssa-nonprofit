@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
+import styled, { withTheme } from "styled-components"
 import { useLocalJsonForm } from "gatsby-tinacms-json"
+import Image from 'gatsby-image';
 
 import {
   Paper,
@@ -11,11 +12,10 @@ import {
   DraftBadge,
 } from "../components/style"
 import { ListAuthors, AuthorsForm } from "../components/authors"
-import { TagsForm } from "../components/tags"
 import { Link } from "gatsby"
 import { PageLayout } from "../components/pageLayout"
 
-export default function List({ data, pageContext }) {
+export default withTheme(({ data, pageContext }) => {
   const [page] = useLocalJsonForm(data.page, ListForm)
   const [authors] = useLocalJsonForm(data.authors, AuthorsForm)
 
@@ -27,12 +27,25 @@ export default function List({ data, pageContext }) {
   const nextPage = slug + "/" + (currentPage + 1).toString()
   page.title = isFirst ? page.title : page.title + " - " + currentPage
 
+  const thumbnailPosts = data.posts.edges.filter(item => item.node.frontmatter.hideOnPreview)
+  const blogPosts = data.posts.edges.filter(item => !thumbnailPosts.includes(item))
+
   return (
     <PageLayout page={page}>
       <>
-        {data.posts &&
-          data.posts.edges.map((item) => {
-            return (
+        {thumbnailPosts.length > 0 &&
+          <NewsImageGridWrapper style={{marginBottom: '2%'}}>
+            {thumbnailPosts.map(item => (
+              <NewsImageGridItem>
+                <Link to={item.node.frontmatter.path}>
+                  <Image imgStyle={{ objectFit: "contain" }} fluid={item.node.frontmatter.image.childImageSharp.fluid} />
+                </Link>  
+              </NewsImageGridItem>
+            ))}
+          </NewsImageGridWrapper>
+        }
+        {blogPosts.length > 0 &&
+          blogPosts.map(item => (
               <Paper article key={item.node.id}>
                 {item.node.frontmatter.draft && <DraftBadge>Draft</DraftBadge>}
                 <h2>
@@ -54,8 +67,7 @@ export default function List({ data, pageContext }) {
                   </MetaActions>
                 </Meta>
               </Paper>
-            )
-          })}
+          ))}
         <ListNav>
           {!isFirst && (
             <Link to={prevPage} rel="prev">
@@ -71,7 +83,7 @@ export default function List({ data, pageContext }) {
       </>
     </PageLayout>
   )
-}
+})
 
 export const pageQuery = graphql`
   query($listType: String!, $slug: String!, $skip: Int!, $limit: Int!) {
@@ -102,7 +114,7 @@ export const pageQuery = graphql`
       fileRelativePath
     }
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: [DESC, DESC], fields: [frontmatter___hideOnPreview, frontmatter___date] }
       filter: {
         frontmatter: { type: { eq: $listType } }
         published: { eq: true }
@@ -120,6 +132,14 @@ export const pageQuery = graphql`
             title
             draft
             authors
+            hideOnPreview
+            image {
+              childImageSharp {
+                fluid(quality: 70, maxWidth: 1920, fit: INSIDE) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
@@ -132,6 +152,32 @@ export const pageQuery = graphql`
       rawJson
       fileRelativePath
     }
+  }
+`
+
+const NewsImageGridWrapper = styled(Paper)`
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  padding-left: 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+`
+
+const NewsImageGridItem = styled.div`
+  flex-basis: 25%;
+  margin: 2% 4%;
+
+  @media (max-width: ${props => props.theme.breakpoints.smallish}) {
+    flex-basis: 40%;
+    margin: 2.5% 5%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.small}) {
+    flex-basis: 70%;
+    margin: 5% 15%;
   }
 `
 

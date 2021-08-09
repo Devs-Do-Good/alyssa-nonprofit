@@ -8,6 +8,7 @@
   "easing": "cubic-bezier(0.215, 0.610, 0.355, 1.000)",
   "breakpoints": {
     "small": "600px",
+    "smallish": "800px",
     "medium": "1200px",
     "large": "1600px",
     "huge": "2200px"

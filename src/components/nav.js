@@ -20,7 +20,6 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
   }
 
   const menu = data.settingsJson
-  console.log(menu)
 
   return (
     <>

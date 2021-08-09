@@ -4,6 +4,7 @@ date: '2021-08-08T06:11:15.657Z'
 type: initiative
 path: /initiatives/bringing-reproductive-health-to-kajiado-and-monga
 draft: false
+hideOnPreview: false
 hero:
   image: ../images/Kenya one.jpg
 ---

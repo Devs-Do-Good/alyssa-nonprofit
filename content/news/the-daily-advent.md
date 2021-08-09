@@ -4,6 +4,7 @@ date: '2021-08-08T20:12:16.507Z'
 type: news
 path: /inthenews/the-daily-advent
 draft: false
+hideOnPreview: false
 hero:
   image: ../images/Daily Advent.jpg
 ---

@@ -36,13 +36,20 @@ const MasterLayout = ({ children }) => {
               path
               type
               draft
+              hideOnPreview
+              image {
+                childImageSharp {
+                  fluid(quality: 70, maxWidth: 1920) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   `)
-  console.log(data)
 
   return (
     <>
@@ -78,6 +85,7 @@ const CreatePostButton = createRemarkButton({
           type: "post",
           path: `/blog/${slug}`,
           draft: true,
+          hideOnPreview: false,
         })
       }, 1000)
     })
@@ -106,6 +114,7 @@ const CreateInitiativeButton = createRemarkButton({
           type: "initiative",
           path: `/initiatives/${slug}`,
           draft: true,
+          hideOnPreview: false,
         })
       }, 1000)
     })
@@ -115,6 +124,43 @@ const CreateInitiativeButton = createRemarkButton({
   },
   fields: [
     { name: "title", label: "Title", component: "text", required: true },
+  ],
+})
+
+const CreateNewsImageButton = createRemarkButton({
+  label: "New News Image",
+  filename(form) {
+    let slug = slugify(form.link.toLowerCase())
+    return `content/news/${slug}.md`
+  },
+  frontmatter(form) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          date: new Date(),
+          type: "news",
+          image: form.image,
+          path: form.link,
+          hideOnPreview: true,
+          draft: false,
+        })
+      }, 1000)
+    })
+  },
+  fields: [
+    {
+      name: "link",
+      label: "Link to Article",
+      component: "text",
+      required: true
+    },
+    {
+      name: "image",
+      label: "Image",
+      component: "image",
+      parse: (media) => `../images/${media.filename}`,
+      uploadDir: () => `/content/images/`,
+    }
   ],
 })
 
@@ -134,6 +180,7 @@ const CreateNewsButton = createRemarkButton({
           type: "news",
           path: `/inthenews/${slug}`,
           draft: true,
+          hideOnPreview: false,
         })
       }, 1000)
     })
@@ -164,7 +211,7 @@ const CreatePageButton = new JsonCreatorPlugin({
   },
 })
 
-export default withPlugin(MasterLayout, [CreatePostButton, CreateInitiativeButton, CreateNewsButton, CreatePageButton])
+export default withPlugin(MasterLayout, [CreatePostButton, CreateInitiativeButton, CreateNewsButton, CreateNewsImageButton, CreatePageButton])
 
 export const Site = styled.div`
   position: relative;

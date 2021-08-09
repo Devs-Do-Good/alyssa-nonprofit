@@ -4,6 +4,7 @@ date: '2021-08-07T23:32:49.991Z'
 type: news
 path: /inthenews/kcci-8-feature
 draft: false
+hideOnPreview: false
 authors:
   - alyysa-makena
 hero:
