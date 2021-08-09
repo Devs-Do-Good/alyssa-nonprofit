@@ -86,7 +86,7 @@ function Post(props) {
               </MetaSpan>
             )}
             <MetaActions>
-              <Link to="/blog">← Back to Blog</Link>
+              <Link to={window.location.pathname.split('/').slice(0, -1).join('/')}>← Back</Link>
             </MetaActions>
           </Meta>
           <h1>
