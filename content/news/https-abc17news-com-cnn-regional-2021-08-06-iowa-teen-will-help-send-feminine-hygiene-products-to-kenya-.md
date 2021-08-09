@@ -1,6 +1,6 @@
 ---
 title: ''
-date: '2021-08-09T20:03:14.329Z'
+date: '2021-08-09T20:04:20.529Z'
 type: news
 image: ../images/undefined
 link: >-
