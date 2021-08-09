@@ -2,7 +2,7 @@
 title: ''
 date: '2021-08-09T20:04:20.529Z'
 type: news
-image: ../images/undefined
+image: ../images/1200px-Flipboard_logo.png
 link: >-
   https://flipboard.com/topic/kenya/central-iowa-teen-to-help-send-feminine-hygiene-products-to-kenya/a-cAl0jsW1RZ614jDjPM6cZg%3Aa%3A3473547084-ab247c1fb8%2Fflipboard.com 
 path: >-
