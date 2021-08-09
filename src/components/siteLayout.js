@@ -134,13 +134,15 @@ const CreateNewsImageButton = createRemarkButton({
     return `content/news/${slug}.md`
   },
   frontmatter(form) {
+    let slug = slugify(form.link.toLowerCase())
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
           date: new Date(),
           type: "news",
           image: form.image,
-          path: form.link,
+          link: form.link,
+          path: `/inthenews/${slug}`,
           hideOnPreview: true,
           draft: false,
         })

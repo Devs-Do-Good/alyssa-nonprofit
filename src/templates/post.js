@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Image from "gatsby-image"
 
 import { usePlugin } from "tinacms"
 import { useRemarkForm, DeleteAction } from "gatsby-tinacms-remark"
@@ -19,11 +20,38 @@ import { ListTags } from "../components/tags"
 import { PageLayout } from "../components/pageLayout"
 import { useAuthors } from "../components/useAuthors"
 import { useTags } from "../components/useTags"
+import {
+  NewsImageGridWrapper,
+  NewsImageGridItem
+} from "./list"
 
 function Post(props) {
   const authors = useAuthors()
   const tags = useTags()
   const page = props.data.markdownRemark
+
+  const thumbnailFormOptions = {
+    actions: [DeleteAction],
+    fields: [
+      {
+        name: "rawFrontmatter.link",
+        label: "Link to Article",
+        component: "text",
+      },
+      {
+        name: "rawFrontmatter.image",
+        label: "Image",
+        component: "image",
+        parse: (media) => `../images/${media.filename}`,
+        uploadDir: () => `/content/images/`,
+      },
+      {
+        name: "rawFrontmatter.draft",
+        component: "toggle",
+        label: "Draft",
+      },
+    ],
+  }
 
   const formOptions = {
     actions: [DeleteAction],
@@ -70,8 +98,22 @@ function Post(props) {
     ],
   }
 
-  const [data, form] = useRemarkForm(page, formOptions)
+  const [data, form] = useRemarkForm(page, page.frontmatter.hideOnPreview ? thumbnailFormOptions : formOptions);
   usePlugin(form)
+
+  if (page.frontmatter.hideOnPreview) {
+    return (
+      <PageLayout page={data}>
+        <NewsImageGridWrapper>
+          <NewsImageGridItem>
+            <Link to={page.frontmatter.link}>
+              <Image imgStyle={{ objectFit: "contain" }} fluid={page.frontmatter.image.childImageSharp.fluid} />
+            </Link>  
+          </NewsImageGridItem>
+        </NewsImageGridWrapper>
+      </PageLayout>
+    )
+  }
 
   return (
     <InlineForm form={form}>
@@ -133,6 +175,15 @@ export const postQuery = graphql`
         title
         draft
         authors
+        hideOnPreview
+        link
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         hero {
           large
           overlay

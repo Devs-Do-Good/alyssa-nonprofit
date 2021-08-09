@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import styled, { withTheme } from "styled-components"
 import { useLocalJsonForm } from "gatsby-tinacms-json"
 import Image from 'gatsby-image';
+import { useCMS } from 'tinacms'
 
 import {
   Paper,
@@ -16,6 +17,7 @@ import { Link } from "gatsby"
 import { PageLayout } from "../components/pageLayout"
 
 export default withTheme(({ data, pageContext }) => {
+  const cms = useCMS();
   const [page] = useLocalJsonForm(data.page, ListForm)
   const [authors] = useLocalJsonForm(data.authors, AuthorsForm)
 
@@ -37,7 +39,7 @@ export default withTheme(({ data, pageContext }) => {
           <NewsImageGridWrapper style={{marginBottom: '2%'}}>
             {thumbnailPosts.map(item => (
               <NewsImageGridItem>
-                <Link to={item.node.frontmatter.path}>
+                <Link to={cms.enabled ? item.node.frontmatter.path : item.node.frontmatter.link}>
                   <Image imgStyle={{ objectFit: "contain" }} fluid={item.node.frontmatter.image.childImageSharp.fluid} />
                 </Link>  
               </NewsImageGridItem>
@@ -129,6 +131,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             path
+            link
             title
             draft
             authors
@@ -155,7 +158,7 @@ export const pageQuery = graphql`
   }
 `
 
-const NewsImageGridWrapper = styled(Paper)`
+export const NewsImageGridWrapper = styled(Paper)`
   display: -ms-flex;
   display: -webkit-flex;
   display: flex;
@@ -166,7 +169,7 @@ const NewsImageGridWrapper = styled(Paper)`
   align-items: stretch;
 `
 
-const NewsImageGridItem = styled.div`
+export const NewsImageGridItem = styled.div`
   flex-basis: 25%;
   margin: 2% 4%;
 

@@ -6,6 +6,7 @@ path: /inthenews/wdmcs-feature
 draft: false
 hideOnPreview: false
 image: ../images/Screen Shot 2021-08-07 at 5.33.17 PM.png
+link: devsdogood.org
 hero:
   image: ../images/Screen Shot 2021-08-07 at 5.33.17 PM.png
 ---
