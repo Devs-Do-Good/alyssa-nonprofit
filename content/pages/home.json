@@ -35,7 +35,10 @@
       "content": "",
       "postType": "Current Initiatives",
       "heading": "Current Initiatives",
-      "viewMoreLink": "/initiatives"
+      "viewMoreLink": "/initiatives",
+      "viewMoreTextBefore": "Click",
+      "viewMoreTextLink": "here",
+      "viewMoreTextAfter": "to view current initiatives"
     }
   ],
   "hero": {
