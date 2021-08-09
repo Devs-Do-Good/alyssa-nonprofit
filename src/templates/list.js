@@ -165,8 +165,8 @@ export const NewsImageGridWrapper = styled(Paper)`
   padding-left: 0;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
+  align-items: center; 
+  justify-content: center;
 `
 
 export const NewsImageGridItem = styled.div`
