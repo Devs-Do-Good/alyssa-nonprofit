@@ -107,7 +107,7 @@ function Post(props) {
         <NewsImageGridWrapper>
           <NewsImageGridItem>
             <Link to={page.frontmatter.link}>
-              <Image imgStyle={{ objectFit: "contain" }} fluid={page.frontmatter.image.childImageSharp.fluid} />
+              <Image imgStyle={{ objectFit: "contain" }} fluid={page.frontmatter.image?.childImageSharp.fluid} />
             </Link>  
           </NewsImageGridItem>
         </NewsImageGridWrapper>

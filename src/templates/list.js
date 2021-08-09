@@ -40,7 +40,7 @@ export default withTheme(({ data, pageContext }) => {
             {thumbnailPosts.map(item => (
               <NewsImageGridItem>
                 <Link to={cms.enabled ? item.node.frontmatter.path : item.node.frontmatter.link}>
-                  <Image imgStyle={{ objectFit: "contain" }} fluid={item.node.frontmatter.image.childImageSharp.fluid} />
+                  <Image imgStyle={{ objectFit: "contain" }} fluid={item.node.frontmatter.image?.childImageSharp.fluid} />
                 </Link>  
               </NewsImageGridItem>
             ))}
