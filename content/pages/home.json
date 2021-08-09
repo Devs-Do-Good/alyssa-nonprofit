@@ -39,6 +39,11 @@
       "viewMoreTextBefore": "Click",
       "viewMoreTextLink": "here",
       "viewMoreTextAfter": "to view current initiatives"
+    },
+    {
+      "content": "Follow us on Facebook [@TheTetiProject](https://www.facebook.com/TheTetiProject) and on Instagram [@TheTetiProjectKE](https://instagram.com/TheTetiProjectKE)",
+      "center": false,
+      "_template": "ContentBlock"
     }
   ],
   "hero": {
