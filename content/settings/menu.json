@@ -1,10 +1,6 @@
 {
   "menuItems": [
     {
-      "label": "Press",
-      "link": "/press"
-    },
-    {
       "label": "Home",
       "link": "/",
       "emphasis": false
@@ -51,6 +47,10 @@
           "link": "/getinvolved/contact"
         }
       ]
+    },
+    {
+      "label": "Press",
+      "link": "/press"
     },
     {
       "label": "Donate",
