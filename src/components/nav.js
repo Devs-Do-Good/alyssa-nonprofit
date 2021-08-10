@@ -65,7 +65,7 @@ export const Nav = withTheme(({ toggleDarkMode, isDarkMode, theme }) => {
 
 export const StyledNavbar = styled.ul`
   color: inherit;
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${props => props.theme.breakpoints.medium}) {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -91,7 +91,7 @@ export const StyledNavbar = styled.ul`
       `};
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.small}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     display: flex;
     flex-direction: row;
     align-self: stretch;
@@ -134,7 +134,7 @@ export const NavItem = styled.li`
   display: flex;
   align-items: stretch;
   color: inherit;
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${props => props.theme.breakpoints.medium}) {
     &:not(:last-child) {
       border-bottom: 1px solid
         ${props => transparentize(0.85, props.theme.color.white)};
@@ -162,7 +162,7 @@ export const DropdownContent = styled.div`
     text-align: left;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${props => props.theme.breakpoints.medium}) {
     left: calc(50% - 80px);
     top: calc(${props => props.index + 1} * ${props => props.theme.header.height});
     top: -webkit-calc(${props => props.index + 1} * ${props => props.theme.header.height});
@@ -251,7 +251,7 @@ export const NavLink = styled(({ children, ...styleProps }) => (
     width: 100%;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.small}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     line-height: 1;
   }
 
@@ -312,7 +312,7 @@ export const NavLink = styled(({ children, ...styleProps }) => (
         }
       }
 
-      @media (min-width: ${props => props.theme.breakpoints.small}) {
+      @media (min-width: ${props => props.theme.breakpoints.medium}) {
         &:before {
           top: 0.625rem;
           left: 0.25rem;
@@ -410,7 +410,7 @@ export const NavLink = styled(({ children, ...styleProps }) => (
         }
       }
 
-      @media (min-width: ${props => props.theme.breakpoints.small}) {
+      @media (min-width: ${props => props.theme.breakpoints.medium}) {
         &:after,
         &:before {
           display: block;
@@ -423,7 +423,7 @@ export const NavDropdown = styled(NavItem)`
   display: flex;
   align-items: stretch;
   color: inherit;
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${props => props.theme.breakpoints.medium}) {
     &:not(:last-child) {
       border-bottom: 1px solid
         ${props => transparentize(0.85, props.theme.color.white)};
@@ -481,7 +481,7 @@ export const NavToggle = styled(({ menuOpen, ...styleProps }) => {
     opacity: 1;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.small}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     display: none;
   }
 
@@ -520,7 +520,7 @@ export const DarkModeToggle = styled(({ ...styleProps }) => {
   transition: all 300ms ${props => props.theme.easing};
   transform-origin: 50% 50%;
 
-  @media (min-width: ${props => props.theme.breakpoints.small}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 1.5rem;
     height: 100%;
     margin-left: 1rem;

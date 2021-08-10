@@ -65,6 +65,7 @@ export const SiteLink = styled(Link)`
   color: inherit !important;
   text-decoration: none;
   margin: 0;
+  margin-right: 1.5em;
   transition: all 150ms ${p => p.theme.easing};
   z-index: 1;
   svg {
