@@ -21,23 +21,28 @@
           "label": "Name",
           "inputType": "text",
           "autocomplete": "name",
-          "_template": "nameInputBlock"
+          "_template": "nameInputBlock",
+          "key": "name"
         },
         {
           "label": "Email",
           "inputType": "text",
           "autocomplete": "email",
-          "_template": "emailInputBlock"
+          "_template": "emailInputBlock",
+          "key": "email"
         },
         {
           "label": "Message",
           "inputType": "textarea",
           "autocomplete": "",
-          "_template": "messageInputBlock"
+          "_template": "messageInputBlock",
+          "key": "message"
         }
       ],
       "content": "",
-      "recipient": "thetetiprojectke@gmail.com"
+      "formId": "HnUwcG1JUQdop25K1lYN",
+      "loadingText": "Please wait while your form is submitted ...",
+      "successText": "Thank you for your submission!"
     }
   ],
   "displayTitle": true,

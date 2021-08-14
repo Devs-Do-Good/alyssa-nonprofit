@@ -3,50 +3,95 @@ import { Button } from "../components/style"
 import styled, { css } from "styled-components"
 import { mix } from "polished"
 import slugify from "react-slugify"
+import firebase from "gatsby-plugin-firebase"
+import { useFormik } from "formik"
+import LoadingOverlay from 'react-loading-overlay'
 
 export function Form({ form }) {
+  const fields = Object.fromEntries(Object.entries(form.fields).map(([k, v]) => [v.key, '']));
+  const [hasSubmitCompleted, setHasSubmitCompleted] = React.useState(false);
+
+  const formik = useFormik({
+    initialValues: fields,
+    onSubmit: async (values, {setSubmitting, setErrors, resetForm}) => {
+      setSubmitting(true);
+
+      try {
+        await firebase.functions().httpsCallable('submitForm')({
+          form: form.formId,
+          data: values
+        });
+        setHasSubmitCompleted(true);
+        resetForm();
+      }
+      catch (err) {
+        setErrors(err.message.replace("data.", ""));
+      } 
+
+      setSubmitting(false);
+    },
+  });
+
+  if (hasSubmitCompleted) {
+    return (
+      <p>{form.successText}</p>
+    );
+  }
+
   return (
-    <StyledForm
-      name="contact"
-      action={`https://formspree.io/${form.recipient}`}
-      method="POST"
+    <LoadingOverlay
+      active={formik.isSubmitting}
+      spinner
+      text={form.loadingText}
     >
-      {form.fields.map(field => {
-        if (field.inputType === "textarea") {
-          return (
-            <FormField wide>
-              <label for={slugify(field.label)}>{field.label}</label>
-              <textarea
-                cols="40"
-                rows="5"
-                name={slugify(field.label)}
-                id={slugify(field.label)}
-              ></textarea>
-            </FormField>
-          )
-        } else {
-          return (
-            <FormField>
-              <label for={slugify(field.label)}>{field.label}</label>
-              <input
-                id={slugify(field.label)}
-                name={slugify(field.label)}
-                type={field.inputType}
-                autocorrect="off"
-                autocomplete={field.autocomplete | ``}
-              />
-            </FormField>
-          )
-        }
-      })}
-      {form.fields.length > 0 && (
+      {(formik.errors !== "" && Object.keys(formik.errors).length !== 0) &&
+      <StyledError>{formik.errors}</StyledError>}
+    <StyledForm
+      onSubmit={formik.handleSubmit}
+    >
+{
+  form.fields.map(field => {
+    if (field.inputType === "textarea") {
+      return (
         <FormField wide>
-          <Button primary type="submit" value="Submit">
-            Submit
-          </Button>
+          <label for={slugify(field.label)}>{field.label}</label>
+          <textarea
+            cols="40"
+            rows="5"
+            name={slugify(field.label)}
+            id={slugify(field.label)}
+            {...formik.getFieldProps(field.key)}
+          ></textarea>
         </FormField>
-      )}
-    </StyledForm>
+      )
+    } else {
+      return (
+        <FormField>
+          <label for={slugify(field.label)}>{field.label}</label>
+          <input
+            id={slugify(field.label)}
+            name={slugify(field.label)}
+            type={field.inputType}
+            autocorrect="off"
+            autocomplete={field.autocomplete | ``}
+            {...formik.getFieldProps(field.key)}
+          />
+        </FormField>
+      )
+    }
+  })
+}
+{
+  form.fields.length > 0 && (
+    <FormField wide>
+      <Button primary type="submit" value="Submit">
+        Submit
+      </Button>
+    </FormField>
+  )
+}
+    </StyledForm >
+    </LoadingOverlay>
   )
 }
 
@@ -56,6 +101,7 @@ const base = {
   component: "group",
   fields: [
     { name: "label", label: "Label", component: "text" },
+    { name: "key", label: "key", component: "text" },
     { name: "inputType", label: "Input Type", component: "text" },
     { name: "autocomplete", label: "Autocomplete", component: "text" },
   ],
@@ -123,15 +169,27 @@ export const FormBlock = {
   component: "group",
   defaultItem: {
     name: "Form",
-    recipient: "",
+    formId: "",
     fields: [],
   },
   fields: [
     { name: "name", label: "Name", component: "text" },
     {
-      name: "recipient",
-      label: "Recipient",
-      description: "Form is sent via formspree.io.",
+      name: "formId",
+      label: "Form ID",
+      description: "The Devs Do Good Form ID for this form",
+      component: "text",
+    },
+    {
+      name: "loadingText",
+      label: "Loading Text",
+      description: "This text will display while form submissions are being processed.",
+      component: "text",
+    },
+    {
+      name: "successText",
+      label: "Success Text",
+      description: "This text will be displayed after users submit the form.",
       component: "text",
     },
     {
@@ -162,6 +220,13 @@ export const StyledForm = styled.form`
   }
 `
 
+export const StyledError = styled.div`
+  color: #D8000C;
+  background-color: #FFD2D2;
+  margin-bottom: 5%;
+  padding: 2.5%;
+`;
+
 export const FormField = styled.div`
   input,
   textarea {
@@ -175,7 +240,7 @@ export const FormField = styled.div`
     transition: box-shadow 150ms ${props => props.theme.easing};
     color: ${props => props.theme.color.foreground};
     background-color: ${props =>
-      mix(0.95, props.theme.color.background, props.theme.color.foreground)};
+    mix(0.95, props.theme.color.background, props.theme.color.foreground)};
 
     &:focus {
       outline: none;
@@ -183,8 +248,8 @@ export const FormField = styled.div`
     }
 
     ${props =>
-      props.theme.isDarkMode &&
-      css`
+    props.theme.isDarkMode &&
+    css`
         background-color: ${props => props.theme.color.background};
       `};
   }

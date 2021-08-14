@@ -184,11 +184,14 @@ export const pageQuery = graphql`
         title
         underline
         center
-        recipient
+        formId
+        loadingText
+        successText
         fields {
           label
           inputType
           autocomplete
+          key
           name
           position
           hide

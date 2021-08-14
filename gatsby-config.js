@@ -45,6 +45,20 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: "AIzaSyCfRLp4Re-ey5FaSPEr3UCUtnYqQm63iuM",
+          authDomain: "devs-do-good.firebaseapp.com",
+          projectId: "devs-do-good",
+          storageBucket: "devs-do-good.appspot.com",
+          messagingSenderId: "860154284705",
+          appId: "1:860154284705:web:5ea8e33750a873fbd3bee0",
+          measurementId: "G-6CGG93L02Y"
+        }
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/images`,
