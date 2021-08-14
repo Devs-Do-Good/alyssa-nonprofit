@@ -2,6 +2,9 @@ const theme = require("./content/settings/theme.json")
 const site = require("./content/settings/site.json")
 const path = require('path')
 const REPO_ABSOLUTE_PATH = path.join(process.cwd(), './')
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 module.exports = {
   // for deploying to gh-pages
@@ -48,13 +51,13 @@ module.exports = {
       resolve: "gatsby-plugin-firebase",
       options: {
         credentials: {
-          apiKey: "AIzaSyCfRLp4Re-ey5FaSPEr3UCUtnYqQm63iuM",
-          authDomain: "devs-do-good.firebaseapp.com",
-          projectId: "devs-do-good",
-          storageBucket: "devs-do-good.appspot.com",
-          messagingSenderId: "860154284705",
-          appId: "1:860154284705:web:5ea8e33750a873fbd3bee0",
-          measurementId: "G-6CGG93L02Y"
+          apiKey: process.env.GATSBY_FIREBASE_API_KEY,
+          authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
+          projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
+          storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDING_ID,
+          appId: process.env.GATSBY_FIREBASE_APP_ID,
+          measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID
         }
       },
     },
