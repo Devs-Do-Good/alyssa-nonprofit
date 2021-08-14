@@ -3,7 +3,7 @@ const site = require("./content/settings/site.json")
 const path = require('path')
 const REPO_ABSOLUTE_PATH = path.join(process.cwd(), './')
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env`
 });
 
 module.exports = {
